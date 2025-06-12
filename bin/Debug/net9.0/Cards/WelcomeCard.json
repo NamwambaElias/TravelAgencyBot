@@ -1,0 +1,37 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "Image",
+      "url": "https://cdn.pixabay.com/photo/2016/11/29/04/15/airplane-1866585_1280.jpg",
+      "size": "Stretch",
+      "altText": "Globetrotter Genie Banner"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Welcome to Globetrotter Genie",
+      "weight": "Bolder",
+      "size": "Large",
+      "horizontalAlignment": "Center",
+      "color": "Accent"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Your wish for the perfect trip is our command!",
+      "horizontalAlignment": "Center",
+      "wrap": true,
+      "spacing": "None"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Start Planning",
+      "data": {
+        "action": "startPlanning"
+      }
+    }
+  ]
+}
