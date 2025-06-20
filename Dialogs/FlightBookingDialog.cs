@@ -11,11 +11,11 @@ namespace TravelAgencyBot.Dialogs
 {
     public class FlightBookingDialog : ComponentDialog
     {
-        private readonly IStatePropertyAccessor<FlightDetails> _flightAccessor;
+        private readonly IStatePropertyAccessor<FlightDetailsModel> _flightAccessor;
 
         public FlightBookingDialog(UserState userState) : base(nameof(FlightBookingDialog))
         {
-            _flightAccessor = userState.CreateProperty<FlightDetails>("FlightDetails");
+            _flightAccessor = userState.CreateProperty<FlightDetailsModel>("FlightDetails");
 
             var steps = new WaterfallStep[]
             {
@@ -60,7 +60,7 @@ namespace TravelAgencyBot.Dialogs
             }
 
             // Save to state
-            var flightDetails = new FlightDetails
+            var flightDetails = new FlightDetailsModel
             {
                 From = departure,
                 To = destination,

@@ -11,15 +11,15 @@ namespace TravelAgencyBot.Dialogs
 {
     public class SummaryDialog : ComponentDialog
     {
-        private readonly IStatePropertyAccessor<FlightDetails> _flightAccessor;
+        private readonly IStatePropertyAccessor<FlightDetailsModel> _flightAccessor;
         private readonly IStatePropertyAccessor<HotelDetails> _hotelAccessor;
-        private readonly IStatePropertyAccessor<TourGuide> _guideAccessor;
+        private readonly IStatePropertyAccessor<TourGuideModel> _guideAccessor;
 
         public SummaryDialog(UserState userState) : base(nameof(SummaryDialog))
         {
-            _flightAccessor = userState.CreateProperty<FlightDetails>("FlightDetails");
+            _flightAccessor = userState.CreateProperty<FlightDetailsModel>("FlightDetails");
             _hotelAccessor = userState.CreateProperty<HotelDetails>("HotelDetails");
-            _guideAccessor = userState.CreateProperty<TourGuide>("TourGuide");
+            _guideAccessor = userState.CreateProperty<TourGuideModel>("TourGuide");
 
             var waterfallSteps = new WaterfallStep[]
             {
@@ -46,7 +46,7 @@ namespace TravelAgencyBot.Dialogs
             if (hotel != null) total += hotel.Price;
             if (guide != null) total += guide.DailyRate;
 
-            var summary = new BookingSummary
+            var summary = new BookingSummaryModel
             {
                 Flight = flight,
                 Hotel = hotel,

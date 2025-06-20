@@ -39,16 +39,16 @@ namespace TravelAgencyBot
             services.AddSingleton<UserState>();
 
             // Accessors for strongly-typed user data
-            services.AddSingleton<IStatePropertyAccessor<UserProfile>>(sp =>
+            services.AddSingleton<IStatePropertyAccessor<UserDataModel>>(sp =>
             {
                 var userState = sp.GetRequiredService<UserState>();
-                return userState.CreateProperty<UserProfile>("UserProfile");
+                return userState.CreateProperty<UserDataModel>("UserProfile");
             });
 
-            services.AddSingleton<IStatePropertyAccessor<BookingSummary>>(sp =>
+            services.AddSingleton<IStatePropertyAccessor<BookingSummaryModel>>(sp =>
             {
                 var userState = sp.GetRequiredService<UserState>();
-                return userState.CreateProperty<BookingSummary>("BookingSummary");
+                return userState.CreateProperty<BookingSummaryModel>("BookingSummary");
             });
 
             // Register in-memory storage for ConversationState and UserState

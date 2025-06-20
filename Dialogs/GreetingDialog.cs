@@ -11,12 +11,12 @@ namespace TravelAgencyBot.Dialogs
     public class GreetingDialog : ComponentDialog
     {
         private const string UserProfileId = "UserProfile";
-        private readonly IStatePropertyAccessor<UserProfile> _userProfileAccessor;
+        private readonly IStatePropertyAccessor<UserDataModel> _userProfileAccessor;
 
         public GreetingDialog(UserState userState)
             : base(nameof(GreetingDialog))
         {
-            _userProfileAccessor = userState.CreateProperty<UserProfile>(UserProfileId);
+            _userProfileAccessor = userState.CreateProperty<UserDataModel>(UserProfileId);
 
             // Define the dialog steps in a waterfall
             var waterfallSteps = new WaterfallStep[]
@@ -53,7 +53,7 @@ namespace TravelAgencyBot.Dialogs
         private async Task<DialogTurnResult> CaptureNameStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             var name = (string)stepContext.Result;
-            var userProfile = await _userProfileAccessor.GetAsync(stepContext.Context, () => new UserProfile(), cancellationToken);
+            var userProfile = await _userProfileAccessor.GetAsync(stepContext.Context, () => new UserDataModel(), cancellationToken);
             userProfile.Name = name;
 
             await stepContext.Context.SendActivityAsync(

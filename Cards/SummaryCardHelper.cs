@@ -7,7 +7,7 @@ using Microsoft.Bot.Schema;  // ✅ THIS IS THE CORRECT Attachment CLASS
 
 public static class SummaryCardHelper
 {
-    public static Attachment CreateBookingSummaryCard(BookingSummary summary)
+    public static Attachment CreateBookingSummaryCard(BookingSummaryModel summary)
     {
         var card = new AdaptiveCard(new AdaptiveSchemaVersion(1, 2))
         {

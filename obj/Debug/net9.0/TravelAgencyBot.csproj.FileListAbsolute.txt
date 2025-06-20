@@ -66,3 +66,8 @@ D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9
 D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9.0\TravelAgencyBot.pdb
 D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9.0\TravelAgencyBot.genruntimeconfig.cache
 D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9.0\ref\TravelAgencyBot.dll
+D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9.0\TravelAgencyBot.sourcelink.json
+D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\Bots\Learning\State management\TravelAgencyBot\TravelAgencyBot\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json

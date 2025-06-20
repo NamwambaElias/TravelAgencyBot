@@ -11,12 +11,12 @@ namespace TravelAgencyBot.Dialogs
 {
     public class MainDialog : ComponentDialog
     {
-        private readonly IStatePropertyAccessor<UserProfile> _userProfileAccessor;
+        private readonly IStatePropertyAccessor<UserDataModel> _userProfileAccessor;
 
         public MainDialog(UserState userState) : base(nameof(MainDialog))
         {
             // Accessor for retrieving user info from UserState
-            _userProfileAccessor = userState.CreateProperty<UserProfile>("UserProfile");
+            _userProfileAccessor = userState.CreateProperty<UserDataModel>("UserProfile");
 
             // Define waterfall steps
             var waterfallSteps = new WaterfallStep[]
@@ -42,7 +42,7 @@ namespace TravelAgencyBot.Dialogs
         // Step 1: Show main menu as a Hero Card
         private async Task<DialogTurnResult> ShowMainMenuAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var userProfile = await _userProfileAccessor.GetAsync(stepContext.Context, () => new UserProfile(), cancellationToken);
+            var userProfile = await _userProfileAccessor.GetAsync(stepContext.Context, () => new UserDataModel(), cancellationToken);
             var welcomeText = $"What would you like to do next, {userProfile.Name}?";
 
             var reply = MessageFactory.Text(welcomeText);

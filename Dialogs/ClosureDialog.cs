@@ -10,11 +10,11 @@ namespace TravelAgencyBot.Dialogs
 {
     public class ClosureDialog : ComponentDialog
     {
-        private readonly IStatePropertyAccessor<UserProfile> _userProfileAccessor;
+        private readonly IStatePropertyAccessor<UserDataModel> _userProfileAccessor;
 
         public ClosureDialog(UserState userState) : base(nameof(ClosureDialog))
         {
-            _userProfileAccessor = userState.CreateProperty<UserProfile>("UserProfile");
+            _userProfileAccessor = userState.CreateProperty<UserDataModel>("UserProfile");
 
             var waterfallSteps = new WaterfallStep[]
             {
@@ -31,7 +31,7 @@ namespace TravelAgencyBot.Dialogs
         // Step 1: Send thank you and options
         private async Task<DialogTurnResult> SendFarewellAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var userProfile = await _userProfileAccessor.GetAsync(stepContext.Context, () => new UserProfile(), cancellationToken);
+            var userProfile = await _userProfileAccessor.GetAsync(stepContext.Context, () => new UserDataModel(), cancellationToken);
 
             var card = new HeroCard
             {

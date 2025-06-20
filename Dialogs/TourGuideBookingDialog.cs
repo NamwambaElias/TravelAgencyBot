@@ -11,11 +11,11 @@ namespace TravelAgencyBot.Dialogs
 {
     public class TourGuideBookingDialog : ComponentDialog
     {
-        private readonly IStatePropertyAccessor<TourGuide> _tourGuideAccessor;
+        private readonly IStatePropertyAccessor<TourGuideModel> _tourGuideAccessor;
 
         public TourGuideBookingDialog(UserState userState) : base(nameof(TourGuideBookingDialog))
         {
-            _tourGuideAccessor = userState.CreateProperty<TourGuide>("TourGuide");
+            _tourGuideAccessor = userState.CreateProperty<TourGuideModel>("TourGuide");
 
             var waterfallSteps = new WaterfallStep[]
             {
@@ -60,11 +60,11 @@ namespace TravelAgencyBot.Dialogs
             var selectedName = stepContext.Values["SelectedGuide"].ToString();
 
             // Hardcoded guide details matching the cards
-            var guideData = new Dictionary<string, TourGuide>
+            var guideData = new Dictionary<string, TourGuideModel>
             {
-                ["Lena Rivera"] = new TourGuide { Name = "Lena Rivera", Specialty = "Historical Tours", Rating = 4.9, DailyRate = 120 },
-                ["Marcus Kent"] = new TourGuide { Name = "Marcus Kent", Specialty = "Adventure & Hiking", Rating = 4.7, DailyRate = 100 },
-                ["Aya Tanaka"] = new TourGuide { Name = "Aya Tanaka", Specialty = "Cultural Immersion", Rating = 5.0, DailyRate = 130 },
+                ["Lena Rivera"] = new TourGuideModel { Name = "Lena Rivera", Specialty = "Historical Tours", Rating = 4.9, DailyRate = 120 },
+                ["Marcus Kent"] = new TourGuideModel { Name = "Marcus Kent", Specialty = "Adventure & Hiking", Rating = 4.7, DailyRate = 100 },
+                ["Aya Tanaka"] = new TourGuideModel { Name = "Aya Tanaka", Specialty = "Cultural Immersion", Rating = 5.0, DailyRate = 130 },
             };
 
             var selectedGuide = guideData[selectedName];
